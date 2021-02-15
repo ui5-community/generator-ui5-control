@@ -1,5 +1,5 @@
 sap.ui.define(["sap/ui/core/Control"], (Control) => {
-    return Control.extend("name.space.Control", {
+    return Control.extend("<%= name.space %>.Control", {
         init() {
             console.debug(`[${this.getMetadata().getName()}] > init`)
         },

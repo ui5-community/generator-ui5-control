@@ -1,5 +1,5 @@
 {
-  "name": "ui5-cc-name.space",
+  "name": "ui5-cc-<%= name.space %>",
   "version": "0.0.1",
   "description": "(add custom control description here)",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "(you)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ui5-community/ui5-cc-name.space.git"
+    "url": "https://github.com/ui5-community/ui5-cc-<%= name.space %>.git"
   },
   "license": "Apache-2.0",
   "devDependencies": {

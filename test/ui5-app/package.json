@@ -9,12 +9,12 @@
     "ui5-middleware-livereload": "^0.5.2"
   },
   "dependencies": {
-    "ui5-cc-name.space": "file:../../"
+    "ui5-cc-<%= name.space %>": "file:../../"
   },
   "ui5": {
     "dependencies": [
       "ui5-middleware-livereload",
-      "ui5-cc-name.space"
+      "ui5-cc-<%= name.space %>"
     ]
   }
 }

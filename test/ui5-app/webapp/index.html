@@ -21,7 +21,7 @@
           definition: `
     <mvc:View xmlns:mvc="sap.ui.core.mvc" 
         xmlns="sap.m" 
-        xmlns:name.space="cc.name.space"
+        xmlns:<%= name.space %>="cc.<%= name.space %>"
         height="100%">
       <App>
         <Page showHeader="false">
@@ -29,7 +29,7 @@
                 justifyContent="Center"
                 height="100%">
             <HBox justifyContent="SpaceAround">
-              <name.space:Control />
+              <<%= name.space %>:Control />
             </HBox>
           </VBox>
         </Page>
