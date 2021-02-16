@@ -1,5 +1,5 @@
 {
-  "name": "ui5-cc-<%= name.space %>",
+  "name": "ui5-cc-name.space",
   "version": "0.0.1",
   "description": "(add custom control description here)",
   "scripts": {
