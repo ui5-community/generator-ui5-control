@@ -7,6 +7,7 @@ module.exports = class extends Generator {
     constructor(args, opts) {
         super(args, opts)
 
+        // provide runtime option capabilities
         this.option("controlNamespace", { type: String, required: false })
         this.option("buildDir", { type: String, required: false })
     }
@@ -40,12 +41,55 @@ module.exports = class extends Generator {
     }
 
     async writing() {
-        const options = {
-            controlNamespace: this.options.controlNamespace || this.answers.controlNamespace,
-            buildDir: this.options.buildDir || this.answers.buildDir
-        }
+        // we need both vars for later programmatic use
+        ;(this._controlNamespace = this.options.controlNamespace || this.answers.controlNamespace),
+            (this._buildDir = this.options.buildDir || this.answers.buildDir)
 
         // mangle all ./templates/**/* through ejs in the build dir folder
-        this.fs.copyTpl(this.templatePath("./**/*"), this.destinationPath(options.buildDir), options)
+        this.fs.copyTpl(this.templatePath("./**/*"), this.destinationPath(this._buildDir), {
+            controlNamespace: this._controlNamespace,
+            buildDir: this._buildDir
+        })
+    }
+
+    install() {
+        const runtimeDir = path.resolve(this.destinationPath(), this._buildDir)
+        const testDir = path.resolve(this.destinationPath(), this._buildDir, "test", "ui5-app")
+
+        this.log(chalk.yellow("=>==="))
+        this.log(`${chalk.yellow(`prepping development environment`)} for ${this._controlNamespace}.Control.js...`)
+        this._installDeps(runtimeDir)
+
+        this.log(chalk.yellow("===>="))
+        this.log(`${chalk.yellow(`prepping test environment`)} for ${this._controlNamespace}.Control.js...`)
+        this._installDeps(testDir)
+    }
+
+    /**
+     * satisfy package.json dependencies by doing a `npm i`
+     *
+     * @param {string} dir directory to cd into for the process
+     */
+    _installDeps(dir) {
+        process.chdir(dir)
+
+        // npm 7 (node 15) has a stricter peer dep handling...
+        if (parseInt(process.versions.node.split(".")[0]) >= 15) {
+            this.spawnCommandSync("npm", ["i", "--legacy-peer-deps"])
+        } else {
+            this.spawnCommandSync("npm", ["i"])
+        }
+    }
+
+    end() {
+        this.log(chalk.yellow("====>>>"))
+        this.log(yosay(`Et voilà! ${chalk.green(this._controlNamespace + ".Control.js")} is ready!`))
+
+        this.log(`${chalk.green("all set!")} - happy hacking your new UI5 custom control:`)
+
+        this.log(`  $> cd ${path.resolve(this.destinationPath(), this._buildDir)}`)
+        this.log(`  $> npm run test:manual ${chalk.gray("#> http://localhost:8081/index.html")}`)
+        const testDir = path.resolve(this.destinationPath(), this._buildDir, "test", "*.test.js!")
+        this.log(`  $> npm run test ${chalk.gray("#> headless Chrome executing " + testDir)}`)
     }
 }
