@@ -1,32 +1,32 @@
 {
-    "name": "generator-template-ui5-control",
-    "version": "0.0.1",
-    "description": "(sub-)generator for a UI5 custom control",
-    "scripts": {
-        "test": "jest",
-        "test:manual": "cd test/ui5-app && ui5 serve"
-    },
-    "keywords": [
-        "ui5",
-        "custom control",
-        "notepad control",
-        "yeoman generator"
-    ],
-    "author": "Volker Buzek <volker.buzek@js-soft.com>",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ui5-community/template-ui5-control.git"
-    },
-    "license": "Apache-2.0",
-    "files": [
-        "app"
-    ],
-    "dependencies": {
-        "yeoman-generator": "^5.2.0"
-    },
-    "devDependencies": {
-        "@types/jest": "^26.0.20",
-        "jest": "^26.6.3",
-        "yeoman-test": "^5.1.0"
-    }
+  "name": "generator-template-ui5-control",
+  "version": "0.0.1",
+  "description": "(sub-)generator for a UI5 custom control",
+  "scripts": {
+    "test": "jest",
+    "test:manual": "cd test/ui5-app && ui5 serve"
+  },
+  "keywords": [
+    "ui5",
+    "custom control",
+    "notepad control",
+    "yeoman generator"
+  ],
+  "author": "Volker Buzek <volker.buzek@js-soft.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui5-community/template-ui5-control.git"
+  },
+  "license": "Apache-2.0",
+  "files": [
+    "app"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^4.13.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "yeoman-test": "^5.1.0"
+  }
 }

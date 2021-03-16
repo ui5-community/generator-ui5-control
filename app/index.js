@@ -11,11 +11,11 @@ module.exports = class extends Generator {
         const namespace = this.options.namespace || this.answers.namespace
         const builddir = this.options.builddir || this.answers.builddir
 
-        this.fs.copyTpl(
-            this.templatePath("wdio-wdi5.conf.js"),
-            this.destinationPath(this.answers.wdi5ConfPath, "wdio-wdi5.conf.js"),
-            this.answers
-        )
+        // this.fs.copyTpl(
+        //     this.templatePath("wdio-wdi5.conf.js"),
+        //     this.destinationPath(this.answers.wdi5ConfPath, "wdio-wdi5.conf.js"),
+        //     this.answers
+        // )
     }
 
     async prompting() {
