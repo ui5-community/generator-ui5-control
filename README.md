@@ -59,3 +59,14 @@ Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        1.103 s
 Ran all test suites.
+```
+
+## test for the generator
+
+all tests are located in `__tests__`.  
+`jest` is used as test framework and runner.
+
+## contributing
+
+- `prettier`
+- let'em tests pass
