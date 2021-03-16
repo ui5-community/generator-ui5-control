@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "(sub-)generator for a UI5 custom control",
   "scripts": {
-    "test": "jest",
+    "test": "jest __tests__",
     "test:manual": "cd test/ui5-app && ui5 serve"
   },
   "keywords": [
