@@ -1,4 +1,7 @@
 const Generator = require("yeoman-generator")
+const chalk = require("chalk")
+const yosay = require("yosay")
+
 module.exports = class extends Generator {
     constructor(args, opts) {
         super(args, opts)
@@ -19,6 +22,8 @@ module.exports = class extends Generator {
     }
 
     async prompting() {
+        this.log(yosay(`Welcome to the amazing ${chalk.red("template-ui5-control")} generator!`))
+
         const prompts = []
         prompts.push({
             type: "input",
