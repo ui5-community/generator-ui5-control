@@ -58,11 +58,15 @@ module.exports = class extends Generator {
 
         this.log(chalk.yellow("=>==="))
         this.log(`${chalk.yellow(`prepping development environment`)} for ${this._controlNamespace}.Control.js...`)
-        this._installDeps(runtimeDir)
+        if (!this.options["skip-install"]) {
+            this._installDeps(runtimeDir)
+        }
 
         this.log(chalk.yellow("===>="))
         this.log(`${chalk.yellow(`prepping test environment`)} for ${this._controlNamespace}.Control.js...`)
-        this._installDeps(testDir)
+        if (!this.options["skip-install"]) {
+            this._installDeps(testDir)
+        }
     }
 
     /**
