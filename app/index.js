@@ -1,5 +1,6 @@
 const Generator = require("yeoman-generator")
 const chalk = require("chalk")
+const path = require("path")
 const yosay = require("yosay")
 
 module.exports = class extends Generator {
@@ -8,17 +9,6 @@ module.exports = class extends Generator {
 
         this.option("controlNamespace", { type: String, required: false })
         this.option("buildDir", { type: String, required: false })
-    }
-
-    _writing() {
-        const controlNamespace = this.options.controlNamespace || this.answers.controlNamespace
-        const buildDir = this.options.buildDir || this.answers.buildDir
-
-        // this.fs.copyTpl(
-        //     this.templatePath("wdio-wdi5.conf.js"),
-        //     this.destinationPath(this.answers.wdi5ConfPath, "wdio-wdi5.conf.js"),
-        //     this.answers
-        // )
     }
 
     async prompting() {
@@ -50,6 +40,12 @@ module.exports = class extends Generator {
     }
 
     async writing() {
-        this._writing()
+        const options = {
+            controlNamespace: this.options.controlNamespace || this.answers.controlNamespace,
+            buildDir: this.options.buildDir || this.answers.buildDir
+        }
+
+        // mangle all ./templates/**/* through ejs in the build dir folder
+        this.fs.copyTpl(this.templatePath("./**/*"), this.destinationPath(path.resolve(options.buildDir)), options)
     }
 }

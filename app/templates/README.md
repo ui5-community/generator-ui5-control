@@ -1,13 +1,13 @@
-# UI5 custom control `ui5-cc-<%= name.space %>`
+# UI5 custom control `ui5-cc-<%= controlNamespace %>`
 
 (brief description)
 
 ## Install
 
 ```bash
-$> yarn add ui5-cc-<%= name.space %>
+$> yarn add ui5-cc-<%= controlNamespace %>
 # or
-$> npm install ui5-cc-<%= name.space %>
+$> npm install ui5-cc-<%= controlNamespace %>
 ```
 
 ## Included controls
@@ -25,7 +25,7 @@ $> npm install ui5-cc-<%= name.space %>
    "ui5": {
      "dependencies": [
        // ...
-       "ui5-cc-<%= name.space %>",
+       "ui5-cc-<%= controlNamespace %>",
        // ...
      ]
    }
@@ -35,9 +35,9 @@ $> npm install ui5-cc-<%= name.space %>
 
    ```xml
    <mvc:View ... 
-           xmlns:<%= name.space %>="cc.<%= name.space %>"
+           xmlns:<%= controlNamespace %>="cc.<%= controlNamespace %>"
            ...>
-      <<%= name.space %>:Control />
+      <<%= controlNamespace %>:Control />
    </mvc:View>
    ```
 
@@ -47,13 +47,13 @@ $> npm install ui5-cc-<%= name.space %>
 
 ## Build time (in apps)
 
-Use `ui5 build --all` to produce a deployable version of your app including `ui5-cc-<%= name.space %>` and its’ control(s).
+Use `ui5 build --all` to produce a deployable version of your app including `ui5-cc-<%= controlNamespace %>` and its’ control(s).
 
-Other than that, nothing specific to note for using `ui5-cc-<%= name.space %>` in builds in UI5 apps.
+Other than that, nothing specific to note for using `ui5-cc-<%= controlNamespace %>` in builds in UI5 apps.
 
 ## Tests
 
-The `test` folder contains a minimal UI5 app requiring `ui5-cc-<%= name.space %>`. 
+The `test` folder contains a minimal UI5 app requiring `ui5-cc-<%= controlNamespace %>`. 
 
 For testing manually, do:
 
