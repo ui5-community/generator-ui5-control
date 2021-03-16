@@ -46,6 +46,6 @@ module.exports = class extends Generator {
         }
 
         // mangle all ./templates/**/* through ejs in the build dir folder
-        this.fs.copyTpl(this.templatePath("./**/*"), this.destinationPath(path.resolve(options.buildDir)), options)
+        this.fs.copyTpl(this.templatePath("./**/*"), this.destinationPath(options.buildDir), options)
     }
 }
