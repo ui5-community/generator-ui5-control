@@ -1,82 +1,72 @@
-# UI5 custom control `ui5-cc-<%= name.space %>`
+# generator for a UI5 custom control
 
-(brief description)
+Scaffold a UI5 custom control that is structured in such a way that it can also distributed as a `node` module via `npm`.
 
-## Install
+![generating a ui5 custom control](./generate-ui5-control.gif)
 
-```bash
-$> yarn add ui5-cc-<%= name.space %>
-# or
-$> npm install ui5-cc-<%= name.space %>
-```
-
-## Included controls
-
-- `(control)`: (description)
-  - properties: -
-  - aggregations: -
-
-## Usage
-
-1. define the dependeny in `$yourapp/package.json`
-
-   ```json
-   // it is already in "dependencies" after installation
-   "ui5": {
-     "dependencies": [
-       // ...
-       "ui5-cc-<%= name.space %>",
-       // ...
-     ]
-   }
-   ```
-
-2. declare the namespace in your XML view and use the custom control from that namespace
-
-   ```xml
-   <mvc:View ... 
-           xmlns:<%= name.space %>="cc.<%= name.space %>"
-           ...>
-      <<%= name.space %>:Control />
-   </mvc:View>
-   ```
-
-## How it works
-
-(describe how it, well, works)
-
-## Build time (in apps)
-
-Use `ui5 build --all` to produce a deployable version of your app including `ui5-cc-<%= name.space %>` and its’ control(s).
-
-Other than that, nothing specific to note for using `ui5-cc-<%= name.space %>` in builds in UI5 apps.
-
-## Tests
-
-The `test` folder contains a minimal UI5 app requiring `ui5-cc-<%= name.space %>`. 
-
-For testing manually, do:
+## use w/ yeoman locally
 
 ```bash
-$> yarn test:manual # runs ui5 serve
-# now point a browser to http://localhost:8080
+$> npm i -g yo
+$> yo ./path-to-this-repo/app
+
+     _-----_     ╭──────────────────────────╮
+    |       |    │  Welcome to the amazing  │
+    |--(o)--|    │   UI5 custom control     │
+   `---------´   │        generator!        │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
+
+? What's the name space your custom control(s) should live in? (my.ui5.cc)
 ```
 
-The [livereload middleware](https://github.com/petermuessig/ui5-ecosystem-showcase/tree/master/packages/ui5-middleware-livereload) is included, so changes to the test app get reloaded immediately.
-
-A full automated test suite is setup with [Jest + puppeteer](https://jestjs.io/docs/en/puppeteer), starting `ui5 serve` and running all `/test/**/*.test.js` :
+## use w/ options supplied
 
 ```bash
-$> cd test/ui5-app
-$> yarn # for installing runtime dependencies
-$> cd ..
-$> yarn test
-# sample output:
- ...
+$> yo ./path-to-this-repo/app --controlNamespace=bla.fasel --buildDir=../some/dir
+# will make the control live in namespace 'bla.fasel"
+# and put the built control in directory `cwd` + '../some/dir'
 ```
 
-## License
+## aftermath
 
-This work is [dual-licensed](./LICENSE) under Apache 2.0 and the Derived Beer-ware License. The official license will be Apache 2.0, but ultimately you can choose between one of them if you use this work.
+the generator also provides a full dev- and test-environment for your new and shiny custom control 😱 !
 
-When you like this stuff, buy [you](https://you) when you see the person.
+```bash
+$> cd path/to/generator/result
+$> npm run test:manual
+# ...
+info normalizer:translators:ui5Framework Using OpenUI5 version: 1.86.3
+info server:custommiddleware:livereload Livereload server started!
+Server started
+URL: http://localhost:8081
+```
+
+As obvious from the above, the `manual` test command boots up a barebones UI5 app using your new custom control, inclusing live reload capabilites. So once you edit the control, the app auto-reloads and changes are visible immediately.
+
+```bash
+$> npm run test
+# ...
+ PASS  test/ui5-app/basic.test.js
+  my.ui5.cc.Control
+    ✓ should find the my.ui5.cc.Control in index.html (36 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.103 s
+Ran all test suites.
+```
+
+## test for the generator
+
+all tests are located in `__tests__`.  
+`jest` is used as test framework and runner.
+
+## contributing
+
+- `prettier`
+- let'em tests pass

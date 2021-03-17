@@ -1,9 +1,0 @@
-specVersion: "2.2"
-type: module
-metadata:
-  name: ui5-cc-<%= name.space %>
-
-resources:
-  configuration:
-    paths:
-      "/resources/<%= name.space.replace('.','/') %>/": "./"
