@@ -33,7 +33,7 @@ module.exports = class extends Generator {
                 type: "input",
                 name: "buildDir",
                 message: "In what directory should the custom control be stored?",
-                default: "./",
+                default: "./ui5-cc-my.ui5.cc",
                 store: true
             })
         }
