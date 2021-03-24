@@ -1,7 +1,7 @@
 {
-  "name": "generator-template-ui5-control",
-  "version": "0.0.1",
-  "description": "(sub-)generator for a UI5 custom control",
+  "name": "generator-ui5-control",
+  "version": "0.0.2",
+  "description": "yeoman-based (sub-)generator for a UI5 custom control",
   "scripts": {
     "test": "jest __tests__",
     "test:manual": "cd test/ui5-app && ui5 serve"
@@ -15,7 +15,7 @@
   "author": "Volker Buzek <volker.buzek@js-soft.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ui5-community/template-ui5-control.git"
+    "url": "https://github.com/ui5-community/generator-ui5-control.git"
   },
   "license": "Apache-2.0",
   "dependencies": {
