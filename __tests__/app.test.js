@@ -18,7 +18,7 @@ describe("generator call", () => {
         const ns = "diff.name.space"
         const dir = "my/build/dir"
         const result = await helpers
-            .create(path.join(__dirname, "../app"), { "skip-install": true })
+            .create(path.join(__dirname, "../generators/app"), { "skip-install": true })
             .withPrompts({
                 controlNamespace: ns,
                 buildDir: dir
@@ -31,7 +31,7 @@ describe("generator call", () => {
         const ns = "an.other.ns"
         const dir = "diff/dir"
         const result = await helpers
-            .create(path.join(__dirname, "../app"), { "skip-install": true })
+            .create(path.join(__dirname, "../generators/app"), { "skip-install": true })
             .withOptions({
                 controlNamespace: ns,
                 buildDir: dir
@@ -46,7 +46,7 @@ describe("allow both config runtime switch + prompt", () => {
         const ns = "ns.option"
         const dir = "dir/prompt"
         const result = await helpers
-            .create(path.join(__dirname, "../app"), { "skip-install": true })
+            .create(path.join(__dirname, "../generators/app"), { "skip-install": true })
             .withOptions({
                 controlNamespace: ns
             })
@@ -61,7 +61,7 @@ describe("allow both config runtime switch + prompt", () => {
         const ns = "ns.prompt"
         const dir = "dir/option"
         const result = await helpers
-            .create(path.join(__dirname, "../app"), { "skip-install": true })
+            .create(path.join(__dirname, "../generators/app"), { "skip-install": true })
             .withOptions({
                 buildDir: dir
             })
