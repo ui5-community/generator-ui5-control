@@ -1,5 +1,6 @@
 .DS_Store
 .vscode
+.yo-rc.json
 build
 dist
 node_modules
