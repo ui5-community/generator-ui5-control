@@ -71,4 +71,23 @@ describe("allow both config runtime switch + prompt", () => {
             .run()
         _assert(result, { ns, dir })
     })
+
+    test("embedded option sets builddir to ./", async () => {
+        const ns = "ns.prompt"
+        const dir = "dir/option"
+        const embedded = true
+        const result = await helpers
+            .create(path.join(__dirname, "../generators/app"), { "skip-install": true })
+            .withOptions({
+                embedded: embedded
+            })
+            .withPrompts({
+                controlNamespace: ns,
+                buildDir: dir
+            })
+            .run()
+        // even though buildDir was set/answered explicitly,
+        // running in embedded mode sets the buildDir to cwd()
+        _assert(result, { ns, dir: "./" })
+    })
 })

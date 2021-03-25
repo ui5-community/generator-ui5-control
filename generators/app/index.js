@@ -10,10 +10,15 @@ module.exports = class extends Generator {
         // provide runtime option capabilities
         this.option("controlNamespace", { type: String, required: false })
         this.option("buildDir", { type: String, required: false })
+
+        // whether generator runs embedded into easy-ui5 or in standalone mode
+        // -> will also set buildDir to ./
+        this.option("embedded", { type: Boolean, required: false, default: false })
     }
 
     async prompting() {
-        this.log(yosay(`Welcome to the amazing ${chalk.red("UI5 custom control")} generator!`))
+        !this.options.embedded &&
+            this.log(yosay(`Welcome to the amazing ${chalk.red("UI5 custom control")} generator!`))
 
         const prompts = []
 
@@ -28,7 +33,7 @@ module.exports = class extends Generator {
                 store: true
             })
         }
-        if (!this.options.buildDir) {
+        if (!this.options.embedded) {
             prompts.push({
                 type: "input",
                 name: "buildDir",
@@ -36,6 +41,8 @@ module.exports = class extends Generator {
                 default: "./ui5-cc-my.ui5.cc",
                 store: true
             })
+        } else {
+            this.options.buildDir = "./"
         }
         this.answers = await this.prompt(prompts)
     }
