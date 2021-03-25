@@ -79,4 +79,4 @@ $> yarn test
 
 This work is [dual-licensed](./LICENSE) under Apache 2.0 and the Derived Beer-ware License. The official license will be Apache 2.0, but ultimately you can choose between one of them if you use this work.
 
-When you like this stuff, buy [you](https://you) when you see the person.
+When you like this stuff, buy [you](https://you) a drink when you see the person.

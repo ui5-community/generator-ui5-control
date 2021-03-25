@@ -1,10 +1,15 @@
 # generator for a UI5 custom control
 
-Scaffold a UI5 custom control that is structured in such a way that it can also distributed as a `node` module via `npm`.
+Scaffold a UI5 custom control that is structured in such a way that it can also distributed as a `node` module via `npm`.  
+Mainly intended for re-use via [`easy-ui5`](https://github.com/SAP/generator-easy-ui5), but also suitable to run standalone.
+
+## use w/ `easy-ui5`
+
+do `yo easy-ui5` and select this generator when prompted
+
+## use w/ yeoman locally/standalone
 
 ![generating a ui5 custom control](./generate-ui5-control.gif)
-
-## use w/ yeoman locally
 
 ```bash
 $> npm i -g yo
@@ -68,5 +73,6 @@ all tests are located in `__tests__`.
 
 ## contributing
 
-- `prettier`
-- let'em tests pass
+- as of now: stick to `yo` v3 (not 5) and `yeoman-generator` v4.x (not 5) due to incompatability issues
+- use the `prettier` config in `.prettierrc` in this repo
+- please supply an additional test per new feature and/or fixed bug
