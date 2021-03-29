@@ -53,7 +53,7 @@ Other than that, nothing specific to note for using `ui5-cc-<%= controlNamespace
 
 ## Tests
 
-The `test` folder contains a minimal UI5 app requiring `ui5-cc-<%= controlNamespace %>`. 
+The `test` folder contains a minimal UI5 app requiring `ui5-cc-<%= controlNamespace %>`.
 
 For testing manually, do:
 

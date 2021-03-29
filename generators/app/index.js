@@ -4,6 +4,9 @@ const path = require("path")
 const yosay = require("yosay")
 
 module.exports = class extends Generator {
+    static hidden = false // show this generator in easy-ui5
+    static displayName = "Create a new UI5 custom control" // wording in easy-ui5 selection list
+
     constructor(args, opts) {
         super(args, opts)
 
